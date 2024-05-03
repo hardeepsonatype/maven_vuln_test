@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>org.sonatype</groupId>
+    <artifactId>hardeep-demo</artifactId>
+    <version>1.1</version>
+
+    <build>
+      <plugins>
+        <plugin>
+          <groupId>com.sonatype.clm</groupId>
+          <artifactId>clm-maven-plugin</artifactId>
+          <executions>
+            <execution>
+              <goals>
+                <goal>index</goal>
+                <goal>attach</goal>
+              </goals>
+            </execution>
+          </executions>
+        </plugin>
+      </plugins>
+      <pluginManagement>
+        <plugins>
+          <plugin>
+            <groupId>com.sonatype.clm</groupId>
+            <artifactId>clm-maven-plugin</artifactId>
+            <configuration>
+              <serverUrl>http://localhost:8070</serverUrl>              
+              <serverId>nexus</serverId>
+            </configuration>
+          </plugin>
+        </plugins>
+      </pluginManagement>
+    </build>
+
+<dependencies>
+      <dependency>
+        <groupId>org.bouncycastle</groupId>
+        <artifactId>bcpkix-jdk15on</artifactId>
+        <version>1.56</version>
+      </dependency>
+
+      <dependency>
+        <groupId>com.thoughtworks.xstream</groupId>
+        <artifactId>xstream</artifactId>
+        <version>1.4.5</version>
+      </dependency>
+
+      <dependency>
+        <groupId>ch.qos.logback</groupId>
+        <artifactId>logback-classic</artifactId>
+        <version>1.0.3</version>
+      </dependency>
+
+<dependency>
+    <groupId>org.hibernate.validator</groupId>
+    <artifactId>hibernate-validator</artifactId>
+    <version>6.1.2.Final</version>
+</dependency>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>3.8.1</version>
+      <scope>test</scope>
+    </dependency>
+	<dependency>
+		<groupId>commons-fileupload</groupId>
+		<artifactId>commons-fileupload</artifactId>
+		<version>1.0</version>
+		<scope>compile</scope>
+	</dependency>
+	<dependency>
+         <groupId>javax.mail</groupId>
+         <artifactId>mailapi</artifactId>
+         <version>1.4.2</version>
+    </dependency>
+	<dependency>
+		<groupId>net.sf.ehcache</groupId>
+		<artifactId>ehcache</artifactId>
+		<version>1.6.0-rc1</version>
+		<scope>compile</scope>
+	</dependency>
+	<dependency>
+        <groupId>org.apache.logging.log4j</groupId>
+        <artifactId>log4j-core</artifactId>
+        <version>2.10.0</version>
+    </dependency>
+   <dependency>
+        <groupId>org.bouncycastle</groupId>
+        <artifactId>bcpkix-jdk15on</artifactId>
+        <version>1.70</version>
+    </dependency>
+<dependency>
+    <groupId>com.fasterxml.jackson.datatype</groupId>
+    <artifactId>jackson-datatype-jdk8</artifactId>
+<version>2.15.0-rc1</version>
+</dependency>
+    <dependency>
+        <groupId>log4j</groupId>
+        <artifactId>log4j</artifactId>
+        <version>1.2.17</version>
+        <exclusions>
+            <exclusion>
+                <groupId>javax.jms</groupId>
+                <artifactId>jms</artifactId>
+            </exclusion>
+            <exclusion>
+                <groupId>com.sun.jdmk</groupId>
+                <artifactId>jmxtools</artifactId>
+            </exclusion>
+            <exclusion>
+                <groupId>com.sun.jmx</groupId>
+                <artifactId>jmxri</artifactId>
+            </exclusion>
+        </exclusions>
+        </dependency>
+    </dependencies>
+<distributionManagement>
+   <repository>
+      <id>nexus</id>
+      <name>maven-releases</name>
+      <url>http://localhost:8081/repository/maven-releases/</url>
+   </repository>
+   <snapshotRepository>
+        <id>nexus</id>
+        <name>maven-snapshots</name>
+        <url>http://localhost:8081/repository/maven-snapshots/</url>
+    </snapshotRepository>
+</distributionManagement>
+</project>
